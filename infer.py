@@ -163,7 +163,7 @@ class Model3D(Model):
                             help='whether to save outputs as .mat' )
         parser.add_argument('--saveImages', default=False, type=lambda x: x.lower() in ['true', '1'],
                             help='whether to save visualization output as seperate images' )
-        args = parser.parse_args()
+        args, _ = parser.parse_known_args()
 
         args.inputpath = input_path
         args.savefolder = output_path

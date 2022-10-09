@@ -9,7 +9,6 @@ import face_alignment
 
 from CartoonStyleGAN.model import Generator
 from CartoonStyleGAN.utils import tensor2image, save_image
-from crop import main as crop
 from CartoonStyleGAN.projector import main as projector
 
 from DECA.demos.demo_reconstruct import main as DECA_run

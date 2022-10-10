@@ -40,11 +40,26 @@ class Model2D(Model):
             self.model_dict[tokens[0]][tokens[1]] = torch.load(filename)
 
     def make_image(self, nation, style, aligned_path, output_path, swap_layer_num, truncation):
+
+        generator1 = Generator(256, 512, 8, channel_multiplier=2).to(self.device)
+        generator1.load_state_dict(self.generator["g_ema"], strict=False)
+        trunc1 = generator1.mean_latent(4096)
+        
         generator2 = Generator(256, 512, 8, channel_multiplier=2).to(self.device)
         generator2.load_state_dict(self.model_dict[nation][style]["g_ema"], strict=False)
         trunc2 = generator2.mean_latent(4096)
 
         with torch.no_grad():
+            _, save_swap_layer = generator1(
+                [self.latent],
+                input_is_latent=True,
+                truncation=truncation,
+                truncation_latent=trunc1,
+                swap=True,
+                swap_layer_num=swap_layer_num,
+                randomize_noise=False,
+            )
+            
             imgs_gen, _ = generator2(
                 [self.latent],
                 input_is_latent=True,
@@ -52,26 +67,24 @@ class Model2D(Model):
                 truncation_latent=trunc2,
                 swap=True,
                 swap_layer_num=swap_layer_num,
-                swap_layer_tensor=self.save_swap_layer,
+                swap_layer_tensor=save_swap_layer,
                 randomize_noise=True,
             )
 
             # 이미지 저장하고 path 전달
             cartoonized_path = (
-                output_path + os.path.splitext(os.path.basename(aligned_path))[0] + f"-{style}.png"
+                output_path + os.path.splitext(os.path.basename(aligned_path))[0] + f"-{style}-{swap_layer_num}.png"
             )
             save_image(tensor2image(imgs_gen), out=cartoonized_path)
+            # Image.fromarray(make_image(imgs_gen)[0]).save(cartoonized_path)
             return cartoonized_path
 
-    def inference(self, nation, input_path, output_path, make_all=True, style="DISNEY", swap_layer_num=4, truncation=0.6):
+    def inference(self, input_path, output_path, nation="AMERICAN", make_all=True, style="DISNEY"):
         
         self.generator = self.model_dict[nation]["generator"]
         self.encoder = self.model_dict[nation]["encoder"]
 
-        # cropped_path = crop(input_path)
-        # if cropped_path is None:
-        #     return None
-
+        # align
         face_landmarks = self.landmarks_detector.get_landmarks(input_path)
         if face_landmarks is None:
             return None
@@ -79,7 +92,7 @@ class Model2D(Model):
         aligned_path = img_name + "-align" + extension
         image_align_68(input_path, aligned_path, face_landmarks[0])
 
-
+        # encoding
         projector_out = projector(
             "networks/factor",
             self.generator,
@@ -93,28 +106,16 @@ class Model2D(Model):
         self.latent = project[os.path.splitext(os.path.basename(aligned_path))[0]]["latent"]
         self.latent = self.latent.to(self.device)
 
-        generator1 = Generator(256, 512, 8, channel_multiplier=2).to(self.device)
-        generator1.load_state_dict(self.generator["g_ema"], strict=False)
-        trunc1 = generator1.mean_latent(4096)
-        
-        with torch.no_grad():
-            _, self.save_swap_layer = generator1(
-                [self.latent],
-                input_is_latent=True,
-                truncation=0.6,
-                truncation_latent=trunc1,
-                swap=True,
-                swap_layer_num=swap_layer_num,
-                randomize_noise=False,
-            )
-
+        # make_image
         if make_all is True:
             for key in self.model_dict[nation]:
                 if key == "generator" or key == "encoder":
                     continue
-                self.make_image(nation, key, aligned_path, output_path, swap_layer_num, truncation)
+                self.make_image(nation, key, aligned_path, output_path, swap_layer_num=4, truncation=0.6)
+                self.make_image(nation, key, aligned_path, output_path, swap_layer_num=3, truncation=0.4)
         else:
-            self.make_image(nation, style, aligned_path, output_path, swap_layer_num, truncation)
+            self.make_image(nation, style, aligned_path, output_path, swap_layer_num=4, truncation=0.6)
+            self.make_image(nation, style, aligned_path, output_path, swap_layer_num=3, truncation=0.4)
         return output_path
 
 

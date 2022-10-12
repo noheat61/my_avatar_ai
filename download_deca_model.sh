@@ -3,3 +3,4 @@ unzip -o FLAME2020.zip -d DECA/data/
 rm FLAME2020.zip
 
 gdown --id 1rp8kdyLPvErw2dTmqtjISRVvQLj6Yzje -O DECA/data/deca_model.tar
+gdown --id 1s1eAVN234R1bDNCAbioiAbCQN9YZdRTe -O DECA/data/FLAME_texture.npz

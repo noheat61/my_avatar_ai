@@ -123,7 +123,7 @@ class Model3D(Model):
     def __init__(self):
         pass
 
-    def inference(self, input_path, output_path):
+    def inference(self, input_path, output_path, get_full):
         parser = argparse.ArgumentParser(description='DECA: Detailed Expression Capture and Animation')
 
         parser.add_argument('-i', '--inputpath', default='TestSamples/examples', type=str,
@@ -167,6 +167,8 @@ class Model3D(Model):
 
         args.inputpath = input_path
         args.savefolder = output_path
+        args.useTex = get_full
+
         args.rasterizer_type = "pytorch3d"
         args.saveObj = True
         args.saveVis = False

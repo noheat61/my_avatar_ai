@@ -23,7 +23,7 @@ class Model(ABC):
     def inference(self, model_input, kwargs=None):
         pass
 
-
+# Mdel2D: 이미지 도메인 변환 모델(CartoonStyleGAN)
 class Model2D(Model):
     def __init__(self, path="CartoonStyleGAN/networks"):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -49,6 +49,8 @@ class Model2D(Model):
     ):
 
         # 각각의 네트워크(생성자, 만화 생성자)를 가지고 생성 모델 만들기
+        # generator1: 실사 이미지 생성 모델
+        # generator2: 만화 이미지 생성 모델
         generator1 = Generator(256, 512, 8, channel_multiplier=2).to(self.device)
         generator1.load_state_dict(self.generator["g_ema"], strict=False)
         trunc1 = generator1.mean_latent(4096)
@@ -61,7 +63,8 @@ class Model2D(Model):
 
         # 생성 모델에 추출한 잠재 벡터를 입력으로 넣어 이미지 만들기
         # truncation: 이미지를 얼마나 평균에 가까운 이미지로 보정할지(0에 가까울수록 더 큰 보정)
-        # swap_layer_num: layer swapping을 통해 원본 이목구비 정보를 더욱 유지한 이미지로 생성
+        # layer swapping을 통해 원본 이목구비 정보를 더욱 유지한 이미지로 생성
+        # swap_layer_num: swap할 layer(낮을수록 만화에 가까운 이미지, 높을수록 실사에 가까운 이미지)
         with torch.no_grad():
             _, save_swap_layer = generator1(
                 [self.latent],
@@ -169,7 +172,7 @@ class Model2D(Model):
             )
         return output_path
 
-
+# Model3D: 3D 객체 생성 모델(DECA)
 class Model3D(Model):
     def __init__(self):
         pass

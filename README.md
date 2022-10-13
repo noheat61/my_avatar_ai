@@ -31,5 +31,5 @@ cd my_avatar_ai
 
 ### **Run**
 - input your own image in "image/"
-- make directory "cartoon_image/" and "avatar/"
+- `mkdir cartoon_image avatar`
 - `python example.py`

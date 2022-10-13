@@ -10,12 +10,19 @@ SW 마에스트로 "인공지능을 활용한 실사 이미지로 3D 아바타 �
 ## Inference Notebook
 <a href="https://colab.research.google.com/gist/noheat61/062a03245cf495cf3674df7a6cddfada/demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+
+## **Getting started**
+
+Clone the repo:
+'
+git clone https://github.com/YadiraF/DECA
+cd DECA
+'
 ## **Requirements**
 
 - Python 3.8, CUDA 11.3
 - `pip install -r requirements.txt`
 
-## **Getting started**
 
 - `python3 download_cartoon_data.py`
 - `bash download_deca_model.sh`

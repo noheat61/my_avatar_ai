@@ -14,14 +14,16 @@ SW 마에스트로 "인공지능을 활용한 실사 이미지로 3D 아바타 �
 ## **Getting started**
 
 Clone the repo:
-'
-git clone https://github.com/YadiraF/DECA
-cd DECA
-'
-## **Requirements**
+`
+https://github.com/noheat61/my_avatar_ai
+cd my_avatar_ai
+`
 
-- Python 3.8, CUDA 11.3
-- `pip install -r requirements.txt`
+### **Requirements**
+
+* Python 3.8
+* CUDA 11.3
+* `pip install -r requirements.txt`
 
 
 - `python3 download_cartoon_data.py`

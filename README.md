@@ -14,10 +14,10 @@ SW 마에스트로 "인공지능을 활용한 실사 이미지로 3D 아바타 �
 ## **Getting started**
 
 Clone the repo:
-`
+```
 https://github.com/noheat61/my_avatar_ai
 cd my_avatar_ai
-`
+```
 
 ### **Requirements**
 

@@ -30,4 +30,6 @@ cd my_avatar_ai
 - `bash download_deca_model.sh`
 
 ### **Run**
+- input your own image in "image/"
+- make directory "cartoon_image/" and "avatar/"
 - `python example.py`

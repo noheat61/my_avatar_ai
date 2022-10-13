@@ -23,9 +23,13 @@ cd my_avatar_ai
 
 * Python 3.8
 * CUDA 11.3
+* Only Linux(pytorch3d)
 * `pip install -r requirements.txt`
 
+### **Prepare data**
 
-- `python3 download_cartoon_data.py`
+- `python download_cartoon_data.py`
 - `bash download_deca_model.sh`
-- `python3 example.py`
+
+### **Run**
+- `python example.py`

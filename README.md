@@ -1,4 +1,4 @@
-# **my.Avatar**
+# **my.Avatar: Deep Learning-based Pipeline for Generating 3D Cartoon Avatars Using 2D Facial Images**
 
 ![figure1](https://user-images.githubusercontent.com/62093939/195901755-32fb5ea7-b196-49ae-bcb1-efd12873835e.png)
 

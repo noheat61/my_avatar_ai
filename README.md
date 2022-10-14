@@ -21,7 +21,7 @@ cd my_avatar_ai
 
 * Python 3.8
 * CUDA 11.3
-* Only Linux(pytorch3d only support Linux)
+* Linux(pytorch3d only support Linux)
 ```shell
 # install all packages(recommend using conda)
 pip install -r requirements.txt

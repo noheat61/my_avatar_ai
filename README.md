@@ -23,7 +23,7 @@ cd my_avatar_ai
 * CUDA 11.3
 * Linux(pytorch3d only support Linux)
 ```shell
-# install all packages(recommend using conda)
+# Install all packages(recommend using conda)
 pip install -r requirements.txt
 ```
 
@@ -40,6 +40,9 @@ bash download_deca_model.sh
 ### **Run**
 Before run scripts below, input your own image in "image/"
 ```shell
+# Make directories
 mkdir cartoon_image avatar
+
+# Inference
 python example.py
 ```

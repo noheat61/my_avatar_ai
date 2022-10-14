@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ```
 
 ### **Prepare data**
-
+You can download all the files you need just by running the script frame below.
 ```shell
 # Download all CartoonStyleGAN networks
 python download_cartoon_data.py
@@ -38,7 +38,7 @@ bash download_deca_model.sh
 ```
 
 ### **Run**
-Before run scripts below, input your own image in "image/"
+Before run scripts below, input your own image in "image/".
 ```shell
 # Make directories
 mkdir cartoon_image avatar

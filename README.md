@@ -1,5 +1,7 @@
 # **my.Avatar**
 
+![figure1](https://user-images.githubusercontent.com/62093939/195901755-32fb5ea7-b196-49ae-bcb1-efd12873835e.png)
+
 Deep Learning-based Pipeline for Generating 3D Cartoon Avatars Using 2D Facial Images
 
 ## Abstract
@@ -9,7 +11,7 @@ Deep Learning-based Pipeline for Generating 3D Cartoon Avatars Using 2D Facial I
 <a href="https://colab.research.google.com/gist/noheat61/062a03245cf495cf3674df7a6cddfada/demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
-## **Getting started**
+## Getting started
 
 Clone the repo:
 ```
@@ -33,3 +35,5 @@ cd my_avatar_ai
 - input your own image in "image/"
 - `mkdir cartoon_image avatar`
 - `python example.py`
+
+## **Getting started**

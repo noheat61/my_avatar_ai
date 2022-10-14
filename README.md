@@ -38,7 +38,7 @@ bash download_deca_model.sh
 ```
 
 ### **Run**
-before run scripts below, input your own image in "image/"
+Before run scripts below, input your own image in "image/"
 ```shell
 mkdir cartoon_image avatar
 python example.py

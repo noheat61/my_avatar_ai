@@ -24,7 +24,7 @@ cd my_avatar_ai
 * Python 3.8
 * CUDA 11.3
 * Only Linux(pytorch3d)
-* `pip install -r requirements.txt`
+* ```pip install -r requirements.txt```
 
 ### **Prepare data**
 

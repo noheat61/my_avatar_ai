@@ -47,7 +47,7 @@ mkdir cartoon_image avatar
 python example.py
 ```
 
-## Improve the accuracy of CartoonStyleGAN
+## More: Improve the accuracy of CartoonStyleGAN
 We improved the accuracy of the projection by performing face-alignment preprocessing before putting the image as an input of CartoonStyleGAN.
 
 ![figure32](https://user-images.githubusercontent.com/62093939/195905995-103f6ce3-286a-4438-85a9-e874506820a9.png)

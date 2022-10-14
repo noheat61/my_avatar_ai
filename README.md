@@ -23,15 +23,20 @@ cd my_avatar_ai
 
 * Python 3.8
 * CUDA 11.3
-* Only Linux(pytorch3d)
+* Only Linux(pytorch3d only support Linux)
 ```
+# install all packages(recommend using conda)
 pip install -r requirements.txt
 ```
 
 ### **Prepare data**
 
-- `python download_cartoon_data.py`
-- `bash download_deca_model.sh`
+```
+# Download all CartoonStyleGAN networks
+python download_cartoon_data.py
+# Download DECA template models
+bash download_deca_model.sh
+```
 
 ### **Run**
 - input your own image in "image/"

@@ -2,14 +2,14 @@
 
 ![figure1](https://user-images.githubusercontent.com/62093939/195901755-32fb5ea7-b196-49ae-bcb1-efd12873835e.png)
 
-## Abstract
-> Recently, due to the rapid spread of metaverse, interest in 3D avatar generation is increasing significantly. Technology for modeling human face images as 3D objects has been studied a lot, but research on generating 3D avatars such as cartoon characters lacks research results compared to their demand. In this paper, we present a deep learning technology-based pipeline that generates ② 3D avatars after performing domain conversion of live images into the cartoon character style you want. In addition, in a previous study, CartoonStyleGAN, we improved the limitations of no natural domain conversion when user images are input using face image alignment. It is hoped that this study will be the cornerstone of the study of creating 3D cartoon avatar objects based on human face images.
+## **Abstract**
+Recently, due to the rapid spread of metaverse, interest in 3D avatar generation is increasing significantly. Technology for modeling human face images as 3D objects has been studied a lot, but research on generating 3D avatars such as cartoon characters lacks research results compared to their demand. In this paper, we present a deep learning technology-based pipeline that generates ② 3D avatars after performing domain conversion of live images into the cartoon character style you want. In addition, in a previous study, CartoonStyleGAN, we improved the limitations of no natural domain conversion when user images are input using face image alignment. It is hoped that this study will be the cornerstone of the study of creating 3D cartoon avatar objects based on human face images.
 
-## Inference Notebook
+## **Inference Notebook**
 <a href="https://colab.research.google.com/gist/noheat61/062a03245cf495cf3674df7a6cddfada/demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
-## Getting started
+## **Getting started**
 
 Clone the repo:
 ```shell
@@ -47,7 +47,7 @@ mkdir cartoon_image avatar
 python example.py
 ```
 
-## More: Improve the accuracy of CartoonStyleGAN
+## **More: Improve the accuracy of CartoonStyleGAN**
 We improved the accuracy of the projection by performing face-alignment preprocessing before putting the image as an input of CartoonStyleGAN.
 
 ![figure32](https://user-images.githubusercontent.com/62093939/195905995-103f6ce3-286a-4438-85a9-e874506820a9.png)

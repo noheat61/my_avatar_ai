@@ -19,7 +19,7 @@ cd my_avatar_ai
 
 ### **Requirements**
 
-* Python 3.8
+* Python 3.7
 * CUDA 11.3
 * Linux(pytorch3d only support Linux)
 ```shell

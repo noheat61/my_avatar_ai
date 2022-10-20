@@ -1,4 +1,4 @@
-#!/bin/bash
+# #!/bin/bash
 
 # 1. 실행 파일 다운로드
 gdown --id 16zpBaYhmXYW8d4h1OojopxNzdPOhICoH -O fbx202021_fbxpythonsdk_linux.tar.gz
@@ -14,10 +14,18 @@ cd fbxpython
 PIP="$(which pip)"
 
 ENV="${PIP:0:-4}/../"
+PACKAGE="lib/python3.7/dist-packages/"
+
+RES=$(ls "$ENV$PACKAGE")
+if [ ${RES:0:3}=="ls:" ]
+then
 PACKAGE="lib/python3.7/site-packages/"
+fi
+
 cd lib/Python37_x64
 mv * "$ENV$PACKAGE"
 cd ../../..
 
 # 4. 남은 파일 제거
 rm -rf fbxpython
+echo "SUCCESS!"

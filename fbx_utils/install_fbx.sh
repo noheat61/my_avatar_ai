@@ -16,11 +16,12 @@ PIP="$(which pip)"
 ENV="${PIP:0:-4}/../"
 PACKAGE="lib/python3.7/dist-packages/"
 
-RES=$(ls "$ENV$PACKAGE")
-if [ ${RES:0:3}=="ls:" ]
+if [ ! -d "$ENV$PACKAGE" ];
 then
 PACKAGE="lib/python3.7/site-packages/"
 fi
+
+echo "${PACKAGE}"
 
 cd lib/Python37_x64
 mv * "$ENV$PACKAGE"

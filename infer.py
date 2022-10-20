@@ -151,7 +151,7 @@ class Model2D(Model):
                     aligned_path,
                     output_path,
                     swap_layer_num=3,
-                    truncation=0.4,
+                    truncation=0.6,
                 )
         else:
             self.make_image(
@@ -168,7 +168,7 @@ class Model2D(Model):
                 aligned_path,
                 output_path,
                 swap_layer_num=3,
-                truncation=0.4,
+                truncation=0.6,
             )
         return output_path
 

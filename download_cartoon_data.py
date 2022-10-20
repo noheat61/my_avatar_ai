@@ -12,6 +12,7 @@ google_drive_paths = {
     # "KOREAN_DISNEY.pt" : "https://drive.google.com/uc?id=1tfDPAh4i9-bPldE6on5cv0xOD_jyWxx0",
     # "ASIAN_DISNEY.pt" : "https://drive.google.com/uc?id=1C9VJp2dHI7RRyCXJ-94n6J4-rffRVvbM",
     "AMERICAN_DISNEY.pt" : "https://drive.google.com/uc?id=1PILW-H4Q0W8S22TO4auln1Wgz8cyroH6",
+    "AMERICAN_COMICS.pt" : "https://drive.google.com/uc?id=1mG8RgGmY57uWBIdAjn6n8F6Fq6sg3BCI",
     "AMERICAN_여신강림.pt" : "https://drive.google.com/uc?id=1yEky49SnkBqPhdWvSAwgK5Sbrc3ctz1y",
 }
 

@@ -21,8 +21,6 @@ then
 PACKAGE="lib/python3.7/site-packages/"
 fi
 
-echo "${PACKAGE}"
-
 cd lib/Python37_x64
 mv * "$ENV$PACKAGE"
 cd ../../..

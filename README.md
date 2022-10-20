@@ -54,5 +54,15 @@ We improved the accuracy of the projection by performing face-alignment preproce
 
 For more details, please check our paper.
 
+## **More(incomplete): Connect with the body**
+You can connect your own avatar head with 3D body we provide(modified from mixamo).
+```shell
+# Install fbx packages
+bash fbx_utils/install_fbx.sh
 
+# Download 3D bodies
+bash fbx_utils/download_body.sh
 
+# Connect with body(default: 1.fbx)
+python fbx_utils/example.py
+```

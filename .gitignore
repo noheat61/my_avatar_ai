@@ -33,6 +33,8 @@ Thumbs.db
 *.pkl
 *.dat
 *.npz
+*.obj
+*.fbx
 
 # model file #
 ############

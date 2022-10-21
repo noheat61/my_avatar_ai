@@ -108,9 +108,9 @@ class Model2D(Model):
         try:
             face_landmarks = self.landmarks_detector.get_landmarks(input_path)
         except:
-            print(f"Cannot identify face of {input_path}")
+            print(f"Cannot detect face of {input_path}")
             return None
-            
+
         img_name, extension = os.path.splitext(input_path)
         aligned_path = img_name + "-align" + extension
         image_align_68(input_path, aligned_path, face_landmarks[0])

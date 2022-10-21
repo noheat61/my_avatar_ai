@@ -12,6 +12,6 @@ avatar_path = "avatar/"
 file_list = glob.glob(input_path)
 for filename in file_list:
     model2D.inference(input_path = filename, output_path = cartoon_path,
-                    make_all = False, style = "DISNEY") # "DISNEY", "여신강림", "외모지상주의", "COMICS"
+                    make_all = True, style = "DISNEY") # "DISNEY", "COMICS", "ART", "여신강림", "외모지상주의"
 
-model3D.inference(input_path=cartoon_path, output_path=avatar_path, get_full = False)
+model3D.inference(input_path=cartoon_path, output_path=avatar_path, get_full = True)

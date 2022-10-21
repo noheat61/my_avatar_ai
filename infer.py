@@ -105,9 +105,12 @@ class Model2D(Model):
         self.encoder = self.model_dict[nation]["encoder"]
 
         # 얼굴 이미지 조정(face-alignment) 전처리 수행
-        face_landmarks = self.landmarks_detector.get_landmarks(input_path)
-        if face_landmarks is None:
+        try:
+            face_landmarks = self.landmarks_detector.get_landmarks(input_path)
+        except:
+            print(f"Cannot identify face of {input_path}")
             return None
+            
         img_name, extension = os.path.splitext(input_path)
         aligned_path = img_name + "-align" + extension
         image_align_68(input_path, aligned_path, face_landmarks[0])

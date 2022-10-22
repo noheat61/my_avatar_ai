@@ -6,7 +6,7 @@ def main(body, head, out):
     manager, body_scene = InitializeSdkObjects()
 
     head_scene = fbx.FbxScene.Create(manager, "")
-    
+
     try:
         LoadScene(manager, body_scene, str(Path(body).resolve()))
         LoadScene(manager, head_scene, str(Path(head).resolve()))
@@ -22,15 +22,18 @@ def main(body, head, out):
             
             child.LclScaling.Set(fbx.FbxDouble3(100, 100, 100))
             child.LclTranslation.Set(fbx.FbxDouble3(0, 8.59, 3.98))
-            #LclRotation 추가
+
+        head_scene.GetRootNode().DisconnectAllSrcObject()
 
         for i in range(head_scene.GetSrcObjectCount()):
             obj = head_scene.GetSrcObject(i)
+            if obj == head_scene.GetRootNode() or obj.GetName() == 'GlobalSettings':
+                continue
             obj.ConnectDstObject(body_scene)
 
         head_scene.DisconnectAllSrcObject()
 
-        SaveScene(manager, body_scene, str(Path(out).resolve()))
+        SaveScene(manager, body_scene, str(Path(out).resolve()), pEmbedMedia=True)
     finally:
         head_scene.Destroy()
         body_scene.Destroy()

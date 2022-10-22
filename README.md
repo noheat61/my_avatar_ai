@@ -57,11 +57,15 @@ For more details, please check our paper.
 ## **More(incomplete): Connect with the body**
 You can connect your own avatar head with 3D body we provide(modified from mixamo).
 ```shell
-# Install fbx packages
+# Install 3D packages(fbx, bpy)
 bash fbx_utils/install_fbx.sh
+bpy_post_install
 
 # Download 3D bodies
 bash fbx_utils/download_body.sh
+
+# Convert obj to fbx(3D heads)
+python fbx_utils/obj2fbx.py
 
 # Connect with body(default: 1.fbx)
 python fbx_utils/example.py

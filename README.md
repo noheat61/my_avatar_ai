@@ -38,7 +38,7 @@ bash download_deca_model.sh
 ```
 
 ### **Run**
-Before run scripts below, input your own image in "image/".
+Before run scripts below, input your own image in "images/".
 ```shell
 # Make directories
 mkdir cartoon_image avatar

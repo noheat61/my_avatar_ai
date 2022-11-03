@@ -14,8 +14,8 @@ google_drive_paths = {
     "AMERICAN_DISNEY.pt" : "https://drive.google.com/uc?id=1PILW-H4Q0W8S22TO4auln1Wgz8cyroH6",
     "AMERICAN_COMICS.pt" : "https://drive.google.com/uc?id=1mG8RgGmY57uWBIdAjn6n8F6Fq6sg3BCI",
     "AMERICAN_ART.pt" : "https://drive.google.com/uc?id=1P65UldIHd2QfBu88dYdo1SbGjcDaq1YL",
-    "AMERICAN_여신강림.pt" : "https://drive.google.com/uc?id=1yEky49SnkBqPhdWvSAwgK5Sbrc3ctz1y",
-    
+    "AMERICAN_여신강림.pt" : "https://drive.google.com/uc?id=10rMvARH-Qg17LASKDEGj4i7d8AARXUeL",
+    "AMERICAN_여신강림2.pt" : "https://drive.google.com/uc?id=1yEky49SnkBqPhdWvSAwgK5Sbrc3ctz1y",
 }
 
 def download_pretrained_model(download_all=True, file=''):

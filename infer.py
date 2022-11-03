@@ -13,6 +13,14 @@ from CartoonStyleGAN.projector import main as projector
 
 from DECA.demos.demo_reconstruct import main as DECA_run
 
+model_param = {
+    "DISNEY_s": {"model": "DISNEY", "truncation": 0.5, "swap_layer_num": 3},
+    "DISNEY_w": {"model": "DISNEY", "truncation": 0.5, "swap_layer_num": 4},
+    "여신강림_s": {"model": "여신강림", "truncation": 0.5, "swap_layer_num": 3},
+    "여신강림_w": {"model": "여신강림2", "truncation": 0.5, "swap_layer_num": 4},
+    "COMICS": {"model": "COMICS", "truncation": 0.5, "swap_layer_num": 3},
+    "ART": {"model": "ART", "truncation": 0.5, "swap_layer_num": 4},
+}
 
 class Model(ABC):
     @abstractmethod
@@ -45,8 +53,9 @@ class Model2D(Model):
             self.model_dict[tokens[0]][tokens[1]] = torch.load(filename)
 
     def make_image(
-        self, nation, style, aligned_path, output_path, swap_layer_num, truncation
+        self, nation, style, aligned_path, output_path
     ):
+        param = model_param[style]
 
         # 각각의 네트워크(생성자, 만화 생성자)를 가지고 생성 모델 만들기
         # generator1: 실사 이미지 생성 모델
@@ -57,7 +66,7 @@ class Model2D(Model):
 
         generator2 = Generator(256, 512, 8, channel_multiplier=2).to(self.device)
         generator2.load_state_dict(
-            self.model_dict[nation][style]["g_ema"], strict=False
+            self.model_dict[nation][param["model"]]["g_ema"], strict=False
         )
         trunc2 = generator2.mean_latent(4096)
 
@@ -69,20 +78,20 @@ class Model2D(Model):
             _, save_swap_layer = generator1(
                 [self.latent],
                 input_is_latent=True,
-                truncation=truncation,
+                truncation=param["truncation"],
                 truncation_latent=trunc1,
                 swap=True,
-                swap_layer_num=swap_layer_num,
+                swap_layer_num=param["swap_layer_num"],
                 randomize_noise=False,
             )
 
             imgs_gen, _ = generator2(
                 [self.latent],
                 input_is_latent=True,
-                truncation=truncation,
+                truncation=param["truncation"],
                 truncation_latent=trunc2,
                 swap=True,
-                swap_layer_num=swap_layer_num,
+                swap_layer_num=param["swap_layer_num"],
                 swap_layer_tensor=save_swap_layer,
                 randomize_noise=True,
             )
@@ -91,14 +100,14 @@ class Model2D(Model):
             cartoonized_path = (
                 output_path
                 + os.path.splitext(os.path.basename(aligned_path))[0]
-                + f"-{style}-{swap_layer_num}.png"
+                + f"-{style}.png"
             )
             save_image(tensor2image(imgs_gen), out=cartoonized_path)
             # Image.fromarray(make_image(imgs_gen)[0]).save(cartoonized_path)
             return cartoonized_path
 
     def inference(
-        self, input_path, output_path, nation="AMERICAN", make_all=True, style="DISNEY"
+        self, input_path, output_path, nation="AMERICAN", make_all=True, style="DISNEY_w"
     ):
 
         self.generator = self.model_dict[nation]["generator"]
@@ -132,47 +141,13 @@ class Model2D(Model):
         ]
         self.latent = self.latent.to(self.device)
 
-        # 입력된 정보들로 make_image 실행하여 이미지 도메인 변환
-        # (swap_layer_num, truncation)
-        # -> (4, 0.6): weak cartoonization
-        # -> (3, 0.4): strong cartoonization
         if make_all is True:
-            for key in self.model_dict[nation]:
-                if key == "generator" or key == "encoder":
-                    continue
-                self.make_image(
-                    nation,
-                    key,
-                    aligned_path,
-                    output_path,
-                    swap_layer_num=4,
-                    truncation=0.6,
-                )
-                self.make_image(
-                    nation,
-                    key,
-                    aligned_path,
-                    output_path,
-                    swap_layer_num=3,
-                    truncation=0.6,
-                )
+            for key in model_param:
+                self.make_image(nation,key, aligned_path, output_path)
+        elif style in model_param:
+            self.make_image(nation, style, aligned_path, output_path)
         else:
-            self.make_image(
-                nation,
-                style,
-                aligned_path,
-                output_path,
-                swap_layer_num=4,
-                truncation=0.6,
-            )
-            self.make_image(
-                nation,
-                style,
-                aligned_path,
-                output_path,
-                swap_layer_num=3,
-                truncation=0.6,
-            )
+            print(f"no {style} style!")
         return output_path
 
 # Model3D: 3D 객체 생성 모델(DECA)
@@ -296,6 +271,7 @@ class Model3D(Model):
         args.rasterizer_type = "pytorch3d"
         args.saveObj = True
         args.saveVis = False
+        args.saveImages = True
 
         # DECA 실행하여 아바타 생성 후 path 전달
         DECA_run(args)

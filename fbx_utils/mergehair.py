@@ -12,11 +12,13 @@ def main(head, hair, config, out):
         LoadScene(manager, head_scene, str(Path(head).resolve()))
         LoadScene(manager, hair_scene, str(Path(hair).resolve()))
         
+        print("go")
+        SaveScene(manager, hair_scene, str(Path(out.replace("hair", "hair1")).resolve()), pEmbedMedia=True)
+
         # 머리 붙이기
         destination_node_name = os.path.splitext(os.path.basename(head))[0]
         destination_node = find(head_scene.GetRootNode(), destination_node_name)
         if destination_node is None:
-            print("없는데?")
             return
 
         for i in range(hair_scene.GetRootNode().GetChildCount()):

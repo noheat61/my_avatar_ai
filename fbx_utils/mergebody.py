@@ -16,7 +16,6 @@ def main(body, head, config, out):
         destination_node_name = "mixamorig:Head"
         destination_node = find(body_scene.GetRootNode(), destination_node_name)
         if destination_node is None:
-            print("없는데?")
             return
 
         for i in range(head_scene.GetRootNode().GetChildCount()):

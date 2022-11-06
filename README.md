@@ -19,7 +19,7 @@ cd my_avatar_ai
 
 ### **Requirements**
 
-* Python 3.7
+* Python 3.9
 * CUDA 11.3
 * Linux(pytorch3d only support Linux)
 ```shell
@@ -56,10 +56,13 @@ For more details, please check our paper.
 
 ## **More(incomplete): Connect with the body**
 You can connect your own avatar head with 3D body we provide(modified from mixamo).
+
+Due to the compatibility between packages, this function must be performed in a new environment from **<U>python 3.7</U>**.
 ```shell
 # Install 3D packages(fbx, bpy)
-bash fbx_utils/install_fbx.sh
+pip install -r fbx_utils/requirements.txt
 bpy_post_install
+bash fbx_utils/install_fbx.sh
 
 # Download 3D bodies
 bash fbx_utils/download_body.sh

@@ -6,7 +6,7 @@
 The 3D avatar generation methods have been largely attracting attention as the market of metaverse applications grows significantly. Previous work has studied the 3D reconstruction methods that map the 2D human face images to the 3D objects, however, research on generating 3D cartoon-like avatars has gained little attention. In this paper, we present a deep learning-based pipeline that (1) changes the domain of original images to the cartoon domain that is selected by a user and (2) generates 3D avatar objects using the cartoon 2D image whose domain is changed. Moreover, as we apply the face alignment method to the CartoonStyleGAN, we have improved the quality of generated 2D cartoon images which results in improved 3D head reconstruction. We hope that our work can be a milestone for the research on generating 3D cartoon avatar objects based on 2D human face images.
 
 ## **Inference Notebook**
-<a href="https://colab.research.google.com/gist/noheat61/062a03245cf495cf3674df7a6cddfada/demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/noheat61/my.Avatar-AI/blob/main/demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 ## **Getting started**

@@ -5,7 +5,7 @@
 - Linux
 - [Docker](https://docs.docker.com/desktop/install/linux-install/)
 - [Nvidia Docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
-- VRAM > 16.8Gb (Recomend 24GB)
+- VRAM > 16.8Gb (Recomend 24Gb)
 
 ### Build Image
 ```bash

@@ -1,8 +1,6 @@
 # Dockerize
----
 
 ## Getting Started
----
 ### Requirements
 - Linux
 - [Docker](https://docs.docker.com/desktop/install/linux-install/)

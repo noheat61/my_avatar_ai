@@ -16,7 +16,7 @@ sudo docker build . -t my_avatar_ai:latest
 ```bash
 sudo docker run -it --gpus all my_avatar_ai 
 ```
-If you want assign gpus, you just change `all` to `''device=#,#...''`. But this model will use only one gpu.
+If you want to assign gpus, you just change `all` to `''device=#,#...''`. But this model will use only one gpu.
 
 And If you want to get result of this model, you have to mount local system.
 

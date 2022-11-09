@@ -33,7 +33,7 @@ class Model(ABC):
 
 # Mdel2D: 이미지 도메인 변환 모델(CartoonStyleGAN)
 class Model2D(Model):
-    def __init__(self, path="CartoonStyleGAN/networks"):
+    def __init__(self, path="./CartoonStyleGAN/networks"):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.landmarks_detector = face_alignment.FaceAlignment(
             face_alignment.LandmarksType._3D, flip_input=False

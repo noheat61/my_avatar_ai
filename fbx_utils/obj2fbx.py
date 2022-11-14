@@ -11,4 +11,4 @@ for filename in avatar_list:
     bpy.ops.object.delete()
     
     bpy.ops.import_scene.obj(filepath=filename+"/"+os.path.basename(filename)+".obj")
-    bpy.ops.export_scene.fbx(filepath=filename+"/"+os.path.basename(filename)+".fbx")
+    bpy.ops.export_scene.fbx(filepath=filename+"/"+os.path.basename(filename)+".fbx", embed_textures=True, path_mode='COPY')

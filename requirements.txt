@@ -21,6 +21,7 @@ entrypoints==0.4
 executing==1.2.0
 face-alignment==1.3.5
 fastapi==0.86.0
+fastapi-camelcase==1.0.5
 fastjsonschema==2.16.2
 filelock==3.8.0
 fonttools==4.38.0

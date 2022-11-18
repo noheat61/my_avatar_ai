@@ -46,6 +46,15 @@ mkdir cartoon_image avatar
 # Inference
 python example.py
 ```
+## **Datasets**
+| Dataset | Path
+| :--- | :----------
+| FFHQ | https://github.com/rosinality/stylegan2-pytorch |
+| StyleGAN2-Encoder | https://github.com/bryandlee/stylegan2-encoder-pytorch |
+| Naver Webtoon | https://github.com/bryandlee/naver-webtoon-data |
+| DISNEY | https://github.com/justinpinkney/toonify |
+| COMICS | https://github.com/Sxela/face2comics |
+| ART | https://github.com/NVlabs/metfaces-dataset |
 
 ## **More: Improve the accuracy of CartoonStyleGAN**
 We improved the accuracy of the projection by performing face-alignment preprocessing before putting the image as an input of CartoonStyleGAN.
@@ -54,7 +63,7 @@ We improved the accuracy of the projection by performing face-alignment preproce
 
 For more details, please check our paper.
 
-## **More(incomplete): Connect with the body**
+## **More: Connect with the body**
 You can connect your own avatar head with 3D body we provide(modified from mixamo).
 
 Due to the compatibility between packages, this function must be performed in a new environment from **<U>python 3.7</U>**.

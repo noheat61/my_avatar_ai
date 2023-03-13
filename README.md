@@ -4,7 +4,7 @@
 
 ## **Project Info**
 
-{% include info.html id="nVqUi7qXRGc" %}
+{% include info.html id="nVqUi7qXRGc" provider="youtube" %}
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/kTcRRaXV-fg?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
  
